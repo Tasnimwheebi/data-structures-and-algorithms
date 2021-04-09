@@ -35,10 +35,12 @@ function lower(str) {
 const updateAnimal = (arr, callback) => {
   // Solution code here...
   let newArr = [];
+
   arr.forEach(item =>{
     return newArr.push(callback(item));
   });
   return newArr;
+
 
 };
 
@@ -56,7 +58,9 @@ describe('Testing challenge 2', () => {
 });
 const sortNames = (arr) => {
   // Solution code here...
+
   return arr.sort(); 
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -74,9 +78,11 @@ describe('Testing challenge 3', () => {
 });
 const sortNumbers = (arr) => {
   // Solution code here...
+
   arr.sort((a,b)=>{
     return a - b ;
   }); return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,9 +104,11 @@ describe('Testing challenge 4', () => {
 });
 const sortBackwards = (arr) => {
   // Solution code here...
+
   arr.sort((a,b)=>{
     return b - a ;
   }); return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,6 +120,7 @@ In this alphabetization, capital letters come before lower case letters.
 
 For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
+
 describe('Testing challenge 5', () => {
   test('It should sort strings alphabetically', () => {
     expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'Zebra', 'alphabet', 'carrot']);
@@ -122,6 +131,7 @@ describe('Testing challenge 5', () => {
 const alphabetize = (arr) => {
   // Solution code here...
   return arr.sort();
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -136,6 +146,7 @@ Here is an example of the input:
   {name: 'Tote bag', price: 15}
 ];
 ------------------------------------------------------------------------------------------------ */
+
 describe('Testing challenge 6', () => {
   test('It should sort items by their price', () => {
     expect(sortByPrice([
@@ -156,6 +167,7 @@ const sortByPrice = (arr) => {
   arr.sort((a,b)=>{
     return a.price - b.price;
   }); return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -277,7 +289,6 @@ DO NOT CHANGE any of the below code.
 
 Run your tests from the console: jest challenges-03.test.js
 ------------------------------------------------------------------------------------------------ */
-
 
 
 
