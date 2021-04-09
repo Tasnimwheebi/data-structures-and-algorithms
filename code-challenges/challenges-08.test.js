@@ -37,7 +37,6 @@ describe('Testing challenge 2', () => {
 });
 const typeNum = (arr) => {
   // Solution code here...
-
   let arr2 = arr.filter((val)=>{
     if (typeof (val) === 'number'){
       return true ;
@@ -86,6 +85,7 @@ describe('Testing challenge 4', () => {
     expect(oddValues([2,4,6,8])).toStrictEqual([]);
   });
 });
+
 const oddValues = (arr) => {
   // Solution code here...
   let odds = arr.filter(n => n%2);
@@ -118,7 +118,7 @@ const filterStringsWithVowels = (arr) => {
   // Solution code here...
   let arr2 = arr.filter(val=>{
     // if (val.length === 1) {
-      return /[aeiou]/gi.test(val);
+    return /[aeiou]/gi.test(val);
     // }
   }); return arr2 ;
 };
@@ -144,7 +144,6 @@ describe('Testing challenge 6', () => {
   });
   const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
-
     let newArr = arr.filter(function(item) {
       return !forbiddenValues.includes(item);
     });return newArr ;
@@ -203,7 +202,6 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
   const getStatName = (arr, minBaseStat) => {
   // Solution code here...
-
   };
 
   /* ------------------------------------------------------------------------------------------------
@@ -281,7 +279,6 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest challenges-08.test.js
 
 ------------------------------------------------------------------------------------------------ */
-
 
 
 
