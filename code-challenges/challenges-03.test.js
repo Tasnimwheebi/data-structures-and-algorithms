@@ -35,10 +35,13 @@ function lower(str) {
 const updateAnimal = (arr, callback) => {
   // Solution code here...
   let newArr = [];
-  for (let i = 0; i<arr.length ; i++){
-    newArr.push(callback);
-  }
+
+  arr.forEach(item =>{
+    return newArr.push(callback(item));
+  });
   return newArr;
+
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,6 +59,7 @@ describe('Testing challenge 2', () => {
 const sortNames = (arr) => {
   // Solution code here...
 
+  return arr.sort(); 
 
 };
 
@@ -66,6 +70,7 @@ Write a function called sortNumbers that takes an array of numbers and sorts the
 
 HINT: Beware... JS default is "Lexical" ordering.
 ------------------------------------------------------------------------------------------------ */
+
 describe('Testing challenge 3', () => {
   test('It should sort low-to-high the numbers in an array', () => {
     expect(sortNumbers([8, 3, 2, 9, 12, 1, 115])).toStrictEqual([1, 2, 3, 8, 9, 12, 115]);
@@ -73,17 +78,11 @@ describe('Testing challenge 3', () => {
 });
 const sortNumbers = (arr) => {
   // Solution code here...
-  let temp = 0;
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i; j < arr.length; j++) {
-      if (arr[j] < arr[i]) {
-        temp = arr[j];
-        arr[j] = arr[i];
-        arr[i] = temp;
-      }
-    }
-  }
-  return arr;
+
+  arr.sort((a,b)=>{
+    return a - b ;
+  }); return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -106,6 +105,10 @@ describe('Testing challenge 4', () => {
 const sortBackwards = (arr) => {
   // Solution code here...
 
+  arr.sort((a,b)=>{
+    return b - a ;
+  }); return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,8 +121,17 @@ In this alphabetization, capital letters come before lower case letters.
 For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
+describe('Testing challenge 5', () => {
+  test('It should sort strings alphabetically', () => {
+    expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'Zebra', 'alphabet', 'carrot']);
+    expect(alphabetize(['alphabet','Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'alphabet', 'carrot']);
+    expect(alphabetize([])).toStrictEqual([]);
+  });
+});
 const alphabetize = (arr) => {
   // Solution code here...
+  return arr.sort();
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,8 +147,27 @@ Here is an example of the input:
 ];
 ------------------------------------------------------------------------------------------------ */
 
+describe('Testing challenge 6', () => {
+  test('It should sort items by their price', () => {
+    expect(sortByPrice([
+      {name: 'Sweatshirt', price: 45},
+      {name: 'Bookmark', price: 2.50},
+      {name: 'Tote bag', price: 15}
+    ])).toStrictEqual([
+      {name: 'Bookmark', price: 2.50},
+      {name: 'Tote bag', price: 15},
+      {name: 'Sweatshirt', price: 45},
+    ]);
+    expect(sortByPrice([{price: 12}, {price: 10}])).toStrictEqual([{price: 10}, {price: 12}]);
+    expect(sortByPrice([])).toStrictEqual([]);
+  });
+});
 const sortByPrice = (arr) => {
   // Solution code here...
+  arr.sort((a,b)=>{
+    return a.price - b.price;
+  }); return arr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -268,29 +299,7 @@ Run your tests from the console: jest challenges-03.test.js
 
 
 
-describe('Testing challenge 5', () => {
-  test('It should sort strings alphabetically', () => {
-    expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'Zebra', 'alphabet', 'carrot']);
-    expect(alphabetize(['alphabet','Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'alphabet', 'carrot']);
-    expect(alphabetize([])).toStrictEqual([]);
-  });
-});
 
-describe('Testing challenge 6', () => {
-  test('It should sort items by their price', () => {
-    expect(sortByPrice([
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
-    ])).toStrictEqual([
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15},
-      {name: 'Sweatshirt', price: 45},
-    ]);
-    expect(sortByPrice([{price: 12}, {price: 10}])).toStrictEqual([{price: 10}, {price: 12}]);
-    expect(sortByPrice([])).toStrictEqual([]);
-  });
-});
 
 xdescribe('Testing challenge 7', () => {
   test('It should alphabetize without regard to capitalization', () => {
