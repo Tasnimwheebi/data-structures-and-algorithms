@@ -62,6 +62,19 @@ let characters = [
 
 const sortByChildren = (charArray) => {
   // Solution code here...
+  // let nom = charArray.value(characters.children);
+  charArray.sort((a,b)=>{
+    if (a.children.length < b.children.length){
+      return -1;
+
+    } else if (a.children.length > b.children.length){
+      return 1;
+    }
+    else {
+      return b.house.toLowerCase() - a.house.toLowerCase();
+    }
+  });
+  return charArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -104,9 +117,9 @@ describe('Testing challenge 3', () => {
 });
 const checkValues = (obj, value) => {
   // Solution code here...
-  if (Object.values){
+  if (Object.values(obj) == value){
     return true ;
-  } else if ( value!== Object.values ){
+  } else {
     return false;
   }
 
@@ -144,6 +157,14 @@ describe('Testing challenge 4', () => {
 });
 const updateNumbers = (obj) => {
   // Solution code here...
+  let newArr = [];
+  Object.entries(obj).forEach((val)=>{
+    let x = val.join(': ');
+    newArr.push(x);
+
+
+  });return newArr;
+
 };
 
 
@@ -162,7 +183,11 @@ describe('Testing challenge 5', () => {
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
-  return houses;
+  arr.forEach(val=>{
+    houses.push(val.house);
+
+  }); return houses;
+
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -187,9 +212,19 @@ describe('Testing challenge 6', () => {
 });
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
+  for ( let i = 0 ; i< arr.length ; i++){
+    if (arr[i].name == character){
+      let x=  Object.values(arr[i]);
+      if (x[2].length > 0){
 
+        return true;
+      }else {
+        return false;
+      }
+    }
+
+  }
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
