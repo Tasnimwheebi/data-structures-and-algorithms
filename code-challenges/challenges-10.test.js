@@ -204,12 +204,17 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
-  for ( let i = 0 ; i< data.length ; i++){
-    let fName = data.name;
-    let gend = data.gender;
-    return `${fName} and ${gend}`;
-  }
+  let data2 = data.map(val =>{
+    let fName = val.name;
+    let gend = val.gender;
+    if ( gend === 'male' || gend === 'female'){
+      let names = `${fName}`;
+      return names.toString();
+    }
+  });
+  return data2;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
