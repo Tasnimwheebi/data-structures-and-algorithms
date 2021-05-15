@@ -9,10 +9,24 @@ Write a function named screenForNames that takes in an array of strings and uses
 * the name must contain only letter characters (white spaces are ok)
 
 ------------------------------------------------------------------------------------------------ */
-
+describe('Testing challenge 1', () => {
+  test('It should return a list of names', () => {
+    const names = ['Mr. Brown', ' Ms. Red', 'Dr. Blue', 'Mrs.', '', 'Ms. Black', 'dr. Green', 'Mrs. Orange', 'Purple', 'Mr.  Pink'];
+    expect(screenForNames(names)).toStrictEqual(['Mr. Brown', 'Dr. Blue', 'Ms. Black', 'Mrs. Orange']);
+  });
+});
 const screenForNames = (arr) => {
   // Solution code here...
-}
+  let array=[];
+  arr.forEach(val=>{
+    let reg = /^(Mr|Mrs|Ms|Dr).[\s][A-Z][\w']/g;
+    let tes1 = reg.test(val);
+    if (tes1 === true){
+      array.push(val);
+    }
+    return array;
+  }); return array;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -21,9 +35,27 @@ Write a function named toTitleCase that takes in an array of strings and returns
 
 For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyver'].
 ------------------------------------------------------------------------------------------------ */
+describe('Testing challenge 2', () => {
+  test('It should convert each word to title case', () => {
+    const words = ['apple', 'banana', 'MacGyver'];
+    expect(toTitleCase(words)).toStrictEqual(['Apple', 'Banana', 'MacGyver']);
 
+    expect(toTitleCase([])).toStrictEqual([]);
+  });
+});
 const toTitleCase = (arr) => {
   // Solution code here...
+  let array = arr.map(val=>{
+    let reg = /^[A-Z][\w']/g;
+    if (reg.test(val)) {
+      return val;
+    }
+    else {
+      let x = val.charAt(0).toUpperCase()+ val.slice(1);
+      return x ;
+    }
+
+  }); return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,7 +67,12 @@ The names should be combined into a single string with each character name separ
 
 For example, "Lando Calrisian - Boba Fett - Princess Amidala".
 ------------------------------------------------------------------------------------------------ */
-
+describe('Testing challenge 3', () => {
+  test('It should return only characters that are bigger than Luke', () => {
+    expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
+    expect(biggerThanLuke([])).toStrictEqual('');
+  });
+});
 let starWarsData = [{
   name: 'Luke Skywalker',
   height: '172',
@@ -99,6 +136,15 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  let array = [];
+  arr.forEach(val=>{
+    if(val.mass > 77){
+
+      array.push(val.name);
+    } return array;
+
+  }) ;let x=  array.join(' - ');
+  return x;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,84 +160,6 @@ Here is an example of the input:
 
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
-
-const sortBy = (property, arr) => {
-  // Solution code here...
-};
-
-/* ------------------------------------------------------------------------------------------------
-CHALLENGE 5 
-
-Write a function that determines if a given URL is secure, beginning with https://
-
-Guard against malformed URLs, such as: https:missing-slashes.bad
-
-For example:
-http://www.insecure.com returns false because the URL is not secure
-https://secure.com returns true because the URL is secure
-https:/missingslash.org returns false because the URL is malformed
------------------------------------------------------------------------------------------------- */
-const isSecure = (url) => {
-  // Solution code here...
-};
-
-/* ------------------------------------------------------------------------------------------------
-CHALLENGE 6 
-
-Write a function named detectTicTacToeWin that accepts a two-dimensional array of strings. Each string is guaranteed to be either "X", "O" or an empty string. Your function should check to see if any row, column, or either diagonal direction has three matching "X" or "O" symbols (non-empty strings), three-in-a-line.
-
-This function should return either true or false to indicate if someone won the game.
-
-Instead of trying to write crazy for loops to automate checking the rows, columns and diagonals consider writing one helper function that accepts three coordinate pairs and checks the values of the array at those locations. For instance helpCheck(row1, col1, row2, col2, row3, col3).
-
-Your function does not need to work for boards of any size other than 3x3.
-
-Here is a sample board:
-[
-  ['X', '', 'O'],
-  ['X', 'O', ''],
-  ['X', 'O', 'X'],
-];
------------------------------------------------------------------------------------------------- */
-
-const detectTicTacToeWin = (board) => {
-  // Solution code here...
-};
-
-/* ------------------------------------------------------------------------------------------------
-TESTS
-
-All the code below will verify that your functions are working to solve the challenges.
-
-DO NOT CHANGE any of the below code.
-
-Run your tests from the console: jest challenge-14.test.js
-
------------------------------------------------------------------------------------------------- */
-
-describe('Testing challenge 1', () => {
-  test('It should return a list of names', () => {
-    const names = ['Mr. Brown', ' Ms. Red', 'Dr. Blue', 'Mrs.', '', 'Ms. Black', 'dr. Green', 'Mrs. Orange', 'Purple', 'Mr.  Pink'];
-    expect(screenForNames(names)).toStrictEqual(['Mr. Brown', 'Dr. Blue', 'Ms. Black', 'Mrs. Orange']);
-  });
-});
-
-describe('Testing challenge 2', () => {
-  test('It should convert each word to title case', () => {
-    const words = ['apple', 'banana', 'MacGyver'];
-    expect(toTitleCase(words)).toStrictEqual(['Apple', 'Banana', 'MacGyver']);
-
-    expect(toTitleCase([])).toStrictEqual([]);
-  });
-});
-
-describe('Testing challenge 3', () => {
-  test('It should return only characters that are bigger than Luke', () => {
-    expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
-    expect(biggerThanLuke([])).toStrictEqual('');
-  });
-});
-
 describe('Testing challenge 4', () => {
   test('It should sort items by a price', () => {
 
@@ -220,7 +188,29 @@ describe('Testing challenge 4', () => {
     ]);
   });
 });
+const sortBy = (property, arr) => {
+  // Solution code here...
+  let array = arr.sort((a,b)=>{
+    if(b[property] < a[property]){
+      return 1;
+    }else {
+      return -1;
+    }
+  }); return array;
+};
 
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 5
+
+Write a function that determines if a given URL is secure, beginning with https://
+
+Guard against malformed URLs, such as: https:missing-slashes.bad
+
+For example:
+http://www.insecure.com returns false because the URL is not secure
+https://secure.com returns true because the URL is secure
+https:/missingslash.org returns false because the URL is malformed
+------------------------------------------------------------------------------------------------ */
 describe('Testing challenge 5', () => {
   test('It should check if url is https', () => {
 
@@ -229,7 +219,31 @@ describe('Testing challenge 5', () => {
     expect(isSecure('https:/missingslash.org')).toBe(false);
   });
 });
+const isSecure = (url) => {
+  // Solution code here...
+  let reg = /^(https):+[//]+(secure).(com)$/;
+  let tes1 = reg.test(url);
+  return tes1;
+};
 
+/* ------------------------------------------------------------------------------------------------
+CHALLENGE 6
+
+Write a function named detectTicTacToeWin that accepts a two-dimensional array of strings. Each string is guaranteed to be either "X", "O" or an empty string. Your function should check to see if any row, column, or either diagonal direction has three matching "X" or "O" symbols (non-empty strings), three-in-a-line.
+
+This function should return either true or false to indicate if someone won the game.
+
+Instead of trying to write crazy for loops to automate checking the rows, columns and diagonals consider writing one helper function that accepts three coordinate pairs and checks the values of the array at those locations. For instance helpCheck(row1, col1, row2, col2, row3, col3).
+
+Your function does not need to work for boards of any size other than 3x3.
+
+Here is a sample board:
+[
+  ['X', '', 'O'],
+  ['X', 'O', ''],
+  ['X', 'O', 'X'],
+];
+------------------------------------------------------------------------------------------------ */
 describe('Testing challenge 6', () => {
   test('It should return true if there are three in a row', () => {
     expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
@@ -244,3 +258,17 @@ describe('Testing challenge 6', () => {
     expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
   });
 });
+const detectTicTacToeWin = (board) => {
+  // Solution code here...
+};
+
+/* ------------------------------------------------------------------------------------------------
+TESTS
+
+All the code below will verify that your functions are working to solve the challenges.
+
+DO NOT CHANGE any of the below code.
+
+Run your tests from the console: jest challenge-14.test.js
+
+------------------------------------------------------------------------------------------------ */
