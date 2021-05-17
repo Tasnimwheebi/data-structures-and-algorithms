@@ -4,7 +4,7 @@
 |readmecc2|[GitHub link](https://github.com/Tasnimwheebi/data-structures-and-algorithms/blob/array-reverse/javascript/code-challenges/array-shift/readme.md)|
 
 
-|repl link|[link](https://replit.com/@tasnimwheebi/FunctionalOverjoyedDatamart#index.js)
+[code link](https://replit.com/@tasnimwheebi/FunctionalOverjoyedDatamart#index.js)
   
     let x = [2,4,6,-8];
   
