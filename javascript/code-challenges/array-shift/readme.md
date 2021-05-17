@@ -5,9 +5,10 @@
 
 
 |repl link|[link](https://replit.com/@tasnimwheebi/FunctionalOverjoyedDatamart#index.js)
-  let x = [2,4,6,-8];
   
-   function insertShiftArray (arr,num){
+    let x = [2,4,6,-8];
+  
+    function insertShiftArray (arr,num){
    
      let y = arr.length/2;
      
