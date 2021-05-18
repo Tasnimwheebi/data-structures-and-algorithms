@@ -8,12 +8,12 @@
 [code link](https://replit.com/@tasnimwheebi/LustrousWiryDimension#index.js)
 
 
-                   let arr = [4, 8, 15, 16, 23, 42]
-             function binarySearch(array, key){
-                  let start = 0;
-                     let end = array.length - 1;
-    while (start <= end) {
-        let middle = Math.floor((start + end) / 2);
+    let arr = [4, 8, 15, 16, 23, 42]
+      function binarySearch(array, key){
+       let start = 0;
+         let end = array.length - 1;
+       while (start <= end) {
+       let middle = Math.floor((start + end) / 2);
         if (array[middle] === key) {
             return middle;
         } else if (array[middle] < key) {
