@@ -1,0 +1,17 @@
+{
+  "name": "array-revers",
+  "version": "1.0.0",
+  "description": "![array-reverse-1](array-reverse-1.jpg)",
+  "main": "array-reverse.js",
+  "scripts": {
+    "start":"node array-reverse.js",
+    "test": "jest --verbose --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3"
+  }
+}
