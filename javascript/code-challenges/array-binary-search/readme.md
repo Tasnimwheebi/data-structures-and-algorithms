@@ -1,4 +1,3 @@
-
 |file name|link|
 |:-------:|:---|
 |readmecc1|[GitHub link](https://github.com/Tasnimwheebi/data-structures-and-algorithms/blob/array-reverse/javascript/code-challenges/array-revers/readme.md)|
@@ -27,3 +26,6 @@
     binarySearch(arr,23);
   
 ![array-search-binary](array-search-binary.jpg)
+
+![array-search-binary](edge-case.jpg)
+
