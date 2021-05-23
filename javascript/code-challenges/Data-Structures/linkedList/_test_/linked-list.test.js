@@ -92,3 +92,41 @@ describe ( 'LinkedList', ()=>{
     expect( test ).toEqual( '{a} ->{b} ->{c} ->NULL' );
   } );
 } );
+
+it('should successfully add a node to the end of the linked list',() => {
+  let linkedList = new LinkedList();
+  let lastVlaue = 10;
+  linkedList.append(lastVlaue);
+  expect(linkedList.head.next.value).toEqual(lastVlaue);
+});
+it('should successfully add multiple nodes to the end of a linked list',() => {
+  let linkedList = new LinkedList();
+  let lastValue = 10;
+  let lastValue1 = 11;
+  linkedList.append(lastValue);
+  linkedList.append(lastValue1);
+  expect(linkedList.head.next.value).toEqual(lastValue1);
+});
+it('should successfully insert a node before a node located i the middle of a linked list',() => {
+  let linkedList = new LinkedList();
+  linkedList.insert(1);
+  linkedList.insert(2);
+  linkedList.insert(3);
+  linkedList.insert(4);
+  linkedList.insertBefore(3,5);
+  expect(linkedList.head.next.value).toEqual(5);
+});
+it('should successfully insert a node before the first node of a linked list',() => {
+  let linkedList = new LinkedList();
+  linkedList.insert(6);
+  linkedList.insertBefore(6,7);
+  expect(linkedList.head.value).toEqual(7);
+});
+it('should successfully insert after a node in the middle of the linked list',() => {
+  let linkedList = new LinkedList();
+  linkedList.insert(1);
+  linkedList.insert(2);
+  linkedList.insert(3);
+  linkedList.insertAfter(2,4);
+  expect(linkedList.head.next.value).toEqual(4);
+});
