@@ -12,3 +12,5 @@
 ![linked-lists-test](11.PNG)
 
 ![whiteboard](1.jpg)
+
+![whiteboard](22.jpg)

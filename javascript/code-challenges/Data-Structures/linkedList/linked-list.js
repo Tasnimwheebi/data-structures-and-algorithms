@@ -75,7 +75,7 @@ class LinkedList {
     }
   }
   insertBefore(value, newVal){
-    if(!value,newVal){
+    if(!value && newVal){
       throw new Error('You did not insert any value !!!');
     }
 
@@ -86,10 +86,6 @@ class LinkedList {
       this.head = node;
     }
     else {
-      // let temp = null;
-      // for(let i = this.head; i!== value; temp = i, i= i.next){
-      //   node.next = temp.next;
-      //   temp.next = node;
       let temp = this.head;
       while(temp.next !== null){
 
@@ -104,7 +100,7 @@ class LinkedList {
     }
   }
   insertAfter(value, newVal){
-    if(!value,newVal){
+    if(!value && newVal){
       throw new Error('You did not insert any value !!!');
     }
     let node = new Node(newVal);
@@ -123,7 +119,28 @@ class LinkedList {
       throw new Error('Exception');
     }
   }
-
+  llkthFromEnd(k){
+    if(k===null||k<0){
+      throw new Error('You did not insert any value or the value is negative !!!');
+    }
+    let temp = this.head;
+    let length = 0;
+    while(temp !== null){
+      temp = temp.next;
+      length++;
+    }
+    console.log(length);
+    if(k>length-1){
+      throw new Error('k is greater than length of linkedlist ');
+    }
+    let distance = length-k-1;
+    temp = this.head;
+    while(distance !== 0){
+      temp = temp.next;
+      distance--;
+    }
+    return temp;
+  }
 
 }
 
