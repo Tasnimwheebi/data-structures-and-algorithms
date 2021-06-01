@@ -1,0 +1,15 @@
+{
+  "name": "multiBracketValidation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "multi-bracket-validation.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.0.3"
+  }
+}
