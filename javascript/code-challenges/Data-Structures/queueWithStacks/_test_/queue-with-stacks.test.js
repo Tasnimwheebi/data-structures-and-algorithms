@@ -13,6 +13,6 @@ describe('stack with queue',()=>{
     stack.enqueue(val);
     // Stack.enqueue(val2);
 
-    expect(stack.top.value).toBe(10);
+    expect(stack.stack1.top.value).toBe(10);
   });
 });
