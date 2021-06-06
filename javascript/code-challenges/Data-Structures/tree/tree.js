@@ -37,11 +37,61 @@ class BinaryTree {
     traverse(this.root);
     return arr;
   }
-  add(){
+  findMaximum(){
+    // let newNode = new Node(value);
+    if (this.root !== null && this.root.left ===null && this.root.right === null){
 
-  }
-  contains (){
+      return this.root.value;
+    } else if (this.root.left !== null && this.root.left < this.root.right){
+      // this.root.left = newNode;
+      return this.right.value;
+      // return this.root.right;
+    } else if (this.root.right === null && this.root.right <this.root.left){
+      // this.root.right = newNode;
 
+      return this.left.value;
+
+      // return (this.root.right);
+    }
   }
+
 }
-module.exports = BinaryTree ;
+
+
+class BinarySearchTree {
+  constructor(root=null){
+    this.root=root;
+  }
+
+  add(value){
+    let newNode = new Node(value);
+    if(this.root ===null){
+
+      this.root = newNode;
+    }
+    if(value>this.root.value && this.root.right===null){
+      let traverse = (node)=>{
+        node.right = newNode ;
+      };
+      traverse(this.root.right);
+    }
+    if(value<this.root.value && this.root.left===null){
+      let traverse = (node)=>{
+        node.left = newNode ;
+      };
+      traverse(this.root.left);
+    }
+  }
+  contains( value ){
+    let node = new Node ( value );
+    if ( this.root === node.value || this.root.left === node.value || this.root.right === node.value ){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+
+}
+module.exports = {BinaryTree ,BinarySearchTree} ;

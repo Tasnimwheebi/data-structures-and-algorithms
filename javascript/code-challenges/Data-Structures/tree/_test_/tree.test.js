@@ -1,6 +1,6 @@
 'use stict';
 const Node = require('../node.js');
-const BinaryTree = require ('../tree.js');
+const {BinaryTree ,BinarySearchTree}  = require ('../tree.js');
 let tree=null;
 
 describe('binaryTree',()=>{
@@ -37,8 +37,14 @@ describe('binaryTree',()=>{
     expect(tree2.root).toBeNull();
   });
   it('should successfully instantiate a tree with a single root node',()=>{
-    let node2 = new Node(6);
-   let  tree2 = new BinaryTree(node2);
-    expect(tree2.root.value).toBeEqual(6);
+    let node3 = new Node(6);
+    let tree3 = new BinaryTree(node3);
+    expect(tree3.root).toBeEqual(6);
+  });
+  it ('should get the max value in the tree', ()=>{
+
+    expect(tree.findMaximum()).toEqual(7);
   });
 });
+
+
