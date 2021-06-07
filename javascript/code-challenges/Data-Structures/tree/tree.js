@@ -54,6 +54,29 @@ class BinaryTree {
       // return (this.root.right);
     }
   }
+  breadth(){
+    let arr = [];
+    if (this.root !== null){
+      arr.push(this.root);
+    }
+    let x=  arr.shift();
+    arr.push(x.value);
+    let traverse = (node)=>{
+
+      while(arr.length > 0){
+
+        if(x.node !==null) {
+          arr.push(x.node);
+        }
+        if(x.node.right !==null){
+
+          arr.push(x.node.right);
+        }
+      }
+    };
+    traverse(this.root.left);
+    return arr;
+  }
 
 }
 

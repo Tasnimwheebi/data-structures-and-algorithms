@@ -43,7 +43,10 @@ describe('binaryTree',()=>{
   });
   it ('should get the max value in the tree', ()=>{
 
-    expect(tree.findMaximum()).toEqual(7);
+    expect(tree.findMaximum()).toEqual();
+  });
+  it('should return an array with an order of each subtree',()=>{
+    expect(tree.breadth()).toEqual([1,2,3,4,5,6,7]);
   });
 });
 
