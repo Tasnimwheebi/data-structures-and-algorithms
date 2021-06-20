@@ -1,0 +1,15 @@
+{
+  "name": "sortedArr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sort.js",
+  "scripts": {
+    "test": "jest --verbose --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.0.4"
+  }
+}
