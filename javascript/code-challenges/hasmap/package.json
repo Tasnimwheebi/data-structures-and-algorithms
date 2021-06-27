@@ -1,0 +1,15 @@
+{
+  "name": "hasmap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hashmap.js",
+  "scripts": {
+    "test": "jest --coverage --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.0.5"
+  }
+}
