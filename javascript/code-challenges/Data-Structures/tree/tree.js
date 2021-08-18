@@ -39,20 +39,33 @@ class BinaryTree {
   }
   findMaximum(){
     // let newNode = new Node(value);
-    if (this.root !== null && this.root.left ===null && this.root.right === null){
+    // if (this.root !== null && this.root.left ===null && this.root.right === null){
 
-      return this.root.value;
-    } else if (this.root.left !== null && this.root.left < this.root.right){
-      // this.root.left = newNode;
-      return this.right.value;
-      // return this.root.right;
-    } else if (this.root.right === null && this.root.right <this.root.left){
-      // this.root.right = newNode;
+    //   return this.root.value;
+    // } else if (this.root.left !== null && this.root.left < this.root.right){
+    //   // this.root.left = newNode;
+    //   return this.right.value;
+    //   // return this.root.right;
+    // } else if (this.root.right === null && this.root.right <this.root.left){
+    //   // this.root.right = newNode;
 
-      return this.left.value;
+    //   return this.left.value;
 
-      // return (this.root.right);
+    //   // return (this.root.right);
+    // }
+    if(!this.root){
+      throw new Error ;
     }
+    let max = 0 ;
+    let traverse = (node)=>{
+      if(node.value>max){
+        max= node.value;
+      }
+      if (node.left) traverse (node.left);
+      if (node.right) traverse (node.right);
+    };
+    traverse(this.root);
+    return max;
   }
   breadth(){
     let arr = [];
@@ -105,14 +118,36 @@ class BinarySearchTree {
       traverse(this.root.left);
     }
   }
-  contains( value ){
-    let node = new Node ( value );
-    if ( this.root === node.value || this.root.left === node.value || this.root.right === node.value ){
-      return true;
-    }
-    else {
-      return false;
-    }
+  contains( val ){
+    // let node = new Node ( value );
+    // if ( this.root === node.value || this.root.left === node.value || this.root.right === node.value ){
+    //   return true;
+    // }
+    // else {
+    //   return false;
+    // }
+    // if(this.root.value === val){
+    //   return true;
+    // }
+    let temp = this.root;
+    // while(temp){
+    //   if(val<temp.value){
+    //     temp=temp.left;
+    //   }
+    //   if(temp.value===val){
+    //     return true;
+    //   }
+    //   temp = temp.left;
+    // }
+    let traverse = (temp)=>{
+      if(this.root.value === val){
+        return true;
+      } else {
+        if(val<temp.value) traverse (temp.left);
+        if(val>temp.value) traverse (temp.right);
+      }
+    };
+    traverse(temp);
   }
 
 
